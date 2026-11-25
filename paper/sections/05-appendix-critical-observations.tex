@@ -1,0 +1,75 @@
+% =========================================================================
+%  Appendix - Critical Observations
+%  Required: 300 words +/- 5 %  (285 ... 315), NOT part of the 1400 words.
+%  Placed after the Conclusions and before the References (as required).
+%
+%  Evaluate critically the session with the LLM you used for this seminar:
+%  mistakes, hallucinations, incomplete information, ... The complete
+%  session (as PDF) is uploaded to Moodle together with the paper.
+%
+%  DRAFT written from the documented events below and from the session
+%  of 24-25 Nov 2026 (musical examples, paper merge). Check every
+%  statement against your session PDFs and change it to your own view.
+%
+%  Things from the session you may want to look at (check them against
+%  the session PDF yourself; your own assessment is what counts):
+%   - Literature: venues and page numbers were checked with web search,
+%     but the paper summaries were based on the full text for only one
+%     of the three papers (abstracts and index records for the others),
+%     which the LLM stated itself.
+%   - The explanation of additive synthesis used a Fourier series with a
+%     different phase (sign pattern (-1)^(k+1)) than the code, where the
+%     series is aligned with the naive sawtooth.
+%   - The first draft of the comparison code had two measurement errors
+%     that the LLM found only when testing it: fundamental frequencies
+%     at which aliases fell onto harmonics (a false 81 dB result), and
+%     float32 phase accumulation drift that made even the additive
+%     reference look bad.
+%   - When merging the code it found a real error in your own
+%     measurements (aliases hidden in the guard band at G1, G2, G3,
+%     which inflated the maximum improvement figures).
+%   - Claims stated as expectations without proof (e.g. how PolyBLEP
+%     and DPW-2 relate) vs. claims backed by measurement.
+%   - Numbers the LLM reported from its own environment (e.g. timings)
+%     vs. numbers you reproduced.
+%   - Session of 24 Nov: the first aliasing measure for the musical
+%     examples counted the treble loss of PolyBLEP/DPW-2 as aliasing and
+%     ranked DPW-2 above PolyBLEP; corrected after comparing with the AHR.
+%     Code estimate 100-150 lines, final demo.py 293 lines.
+%   - The old paper draft quoted additive cost 190x/41x/7.9x, the current
+%     data says 52x/14x/4.7x (code was optimised after the text).
+% =========================================================================
+\section*{Appendix - Critical Observations}
+
+Throughout this seminar I used a large language model, Claude, for the
+literature search, the Python experiment, the musical examples and the
+text. It saved a lot of time, but almost every part needed checking.
+
+The bibliographic details were reliable, because the model verified
+venues, volumes and page numbers with web search. Its summaries, however,
+were based on the full text of only one of the three articles and on
+abstracts for the other two, which it stated itself. The specific claims
+in the overview therefore had to be checked against the sources before
+they could be used.
+
+The code contained errors that the model found only when it tested its
+own work. The first measurement reported a false result of 81 dB at notes
+where aliases fell exactly onto harmonics, and phase accumulation in
+single precision made even the ideal reference look bad. Later it found a
+similar error in my own measurements, where aliases hidden next to
+harmonics at G1, G2 and G3 inflated the best results. For the musical
+examples, its first measure counted the intended treble loss of PolyBLEP
+and DPW-2 as aliasing and ranked DPW-2 above PolyBLEP. The model noticed
+this only because the ranking contradicted the main experiment, and then
+corrected it.
+
+Other problems were inconsistencies rather than errors. The explanation of
+additive synthesis used a Fourier series with a different sign pattern
+than the code. An earlier draft of the paper still quoted the cost of
+additive synthesis from before the code was optimised. The model also estimated the code for the musical
+examples at about half of its final length.
+
+Overall, the model was most trustworthy when it checked its claims
+against measured data. It was least trustworthy when it summarised
+sources it had not fully read or stated expectations before measuring
+them.

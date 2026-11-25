@@ -1,0 +1,29 @@
+% =========================================================================
+%  I. Introduction
+% =========================================================================
+\section{Introduction}
+
+Most classic analog synthesizers create sound with subtractive synthesis.
+An oscillator produces a waveform that is rich in overtones, and a filter
+removes part of them to shape the timbre \cite{valimaki2007antialiasing}.
+The most common starting waveform is the sawtooth, which rises in a
+straight line and then drops back at once, and software synthesizers
+have to compute it digitally.
+
+A digital signal is a sequence of samples taken at a sampling rate $\fs$,
+here 44.1 kHz, and it can only represent frequencies up to half of it,
+the Nyquist frequency. A tone with the fundamental frequency $\fo$
+consists of harmonics at $\fo$, $2\fo$, $3\fo$ and so on. Because the
+sawtooth jumps once per period, its harmonics never end, and their
+amplitudes fall only as $1/k$. When the waveform is sampled directly,
+every harmonic above the Nyquist frequency folds back into the audible
+range. A harmonic at 30 kHz, for example, appears at
+14.1 kHz. These aliases do not belong to the harmonic series of the note,
+so they sound like noise or out-of-tune tones. An analog recording removes them with a filter before
+sampling, but a digital oscillator creates the samples directly, so
+aliasing has to be prevented during generation.
+
+Section~\ref{sec:overview} reviews three IEEE journal articles on this
+problem, Section~\ref{sec:contribution} compares two cheap methods with a
+naive and an ideal oscillator, and Section~\ref{sec:conclusions}
+concludes.

@@ -1,0 +1,19 @@
+% =========================================================================
+%  IV. Conclusions
+% =========================================================================
+\section{Conclusions}\label{sec:conclusions}
+
+A naive sawtooth aliases over the whole musical range, and more so at
+higher pitch. PolyBLEP corrects only two samples per jump, yet it removes
+about 18 dB of aliasing at roughly 1.3 times the cost and keeps the AHR
+below $-30$ dB up to C7. DPW-2 is about as cheap and keeps more of the
+high harmonics, but its median improvement of 11 dB agrees with the
+observation in \cite{nam2010efficient} that low-order DPW aliases already
+at moderate pitch. The musical examples show that aliasing matters most
+in high melodies.
+
+For a simple software synthesizer, PolyBLEP is therefore a sensible
+default. Higher-order DPW or BLIT with fractional delay filters
+\cite{valimaki2010dpw,nam2010efficient} are needed when aliasing must stay
+inaudible across the whole keyboard. A listening test would be a natural
+next step.

@@ -1,0 +1,10 @@
+– Choose a topic that you are interested in computer based sound production domain.
+– For a chosen topic in the area of the course, find at least three credible references.
+– Write a paper in PDF format with 1400 words, +/- 5% (sharp!) - this is approx. 2 pages A4. It is required to use Word or LaTeX and to follow EV / IEEE template.
+– The paper is presented individually – 9 minutes for presentation, 3 - 4 for questions.
+– You must choose three references from journals published by ACM, IEEE, Springer or Elsevier, Elek. vestnik or Informatica.
+– In the seminar, after the introduction, you give an overview of the topic as given in those three (or more) references.
+– In the main part, you present your contribution, which is followed by conclusions.
+– Your seminar works must have a section called Appendix - Critical Observations (after Conclusions and before References).
+– These observations must be 300 words +/- 5% (sharp!), in addition to the mentioned 1400 words, where you evaluate critically the session with LLM, which you were using for your seminar work (mistakes, hallucinations, incomplete information…).
+- The complete session with LLM (in PDF) must be uploaded to Moodle together with the seminar work.

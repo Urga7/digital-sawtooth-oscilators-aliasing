@@ -1,0 +1,43 @@
+% =========================================================================
+%  II. Overview of the topic, based on the three references
+% =========================================================================
+\section{Overview of Antialiasing Oscillators}\label{sec:overview}
+
+V\"alim\"aki and Huovilainen \cite{valimaki2007antialiasing} sort
+antialiasing oscillators into three groups.
+
+\subsection{Bandlimited Methods}
+Additive synthesis builds the sawtooth as a sum of sine waves, one for
+each harmonic, and stops at the Nyquist frequency. This avoids
+aliasing, but a bass note at 55 Hz already needs 400 sine waves.
+Wavetable synthesis reads precomputed bandlimited periods instead, which
+becomes difficult when the pitch varies over a wide range
+\cite{nam2010efficient}.
+
+\subsection{Quasi-Bandlimited Methods}
+All aliasing comes from the jump. The bandlimited impulse train (BLIT) and
+the bandlimited step (BLEP) therefore replace each ideal jump with a
+smoothed version whose spectrum is limited, usually read from a table
+\cite{valimaki2007antialiasing}. The same article introduces PolyBLEP,
+which approximates the difference between the smoothed and the ideal step
+with a short polynomial. It changes only the two samples next to each
+jump and needs no table.
+
+Nam et al.\ \cite{nam2010efficient} build each pulse of a BLIT from a
+low-order fractional delay filter, a short filter that can place an
+impulse between two samples, and judge the remaining aliases with models
+of human hearing. With a third-order
+B-spline filter, the waveforms were perceptually free of aliasing up to a
+fundamental frequency of 5.8 kHz.
+
+\subsection{Alias-Suppressing Methods}
+The differentiated polynomial waveform (DPW) uses the fact that smoother
+waveforms have weaker high harmonics. Its second-order form, DPW-2,
+squares the naive sawtooth into a parabola. The parabola has no jump and
+its harmonics fall as $1/k^2$, so much less energy folds back. The
+difference of neighbouring samples then turns it back into a sawtooth.
+V\"alim\"aki et al.\ \cite{valimaki2010dpw} extend this idea to higher
+orders and found the fourth-order version perceptually free of aliasing
+over the whole range of a grand piano. Nam et al.\
+\cite{nam2010efficient} found, however, that by their hearing model low
+orders alias audibly already at relatively low pitches.

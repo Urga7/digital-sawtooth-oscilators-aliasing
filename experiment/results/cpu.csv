@@ -1,0 +1,13 @@
+f0_hz,method,ms_per_second_audio,relative_to_naive
+110.0,Naive,0.842,1.0
+110.0,PolyBLEP,1.086,1.29
+110.0,DPW-2,1.196,1.42
+110.0,Additive,43.671,51.89
+440.0,Naive,0.835,1.0
+440.0,PolyBLEP,1.1,1.32
+440.0,DPW-2,1.208,1.45
+440.0,Additive,12.039,14.42
+1760.0,Naive,0.836,1.0
+1760.0,PolyBLEP,1.157,1.38
+1760.0,DPW-2,1.196,1.43
+1760.0,Additive,3.925,4.69

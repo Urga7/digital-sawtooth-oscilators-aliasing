@@ -1,0 +1,85 @@
+% !TeX program = pdflatex
+% =========================================================================
+%  Seminar paper -- Computer based sound production, 2026/27
+%
+%  Based on the official IEEE conference template (template version
+%  6/27/2024, IEEEtran.cls v1.8b) from SeminarWorkTemplates26-27,
+%  on A4 paper like conference-template-a4.docx.
+%
+%  Build:   latexmk -pdf main.tex
+%           (or: pdflatex main, bibtex main, pdflatex main, pdflatex main)
+%  Words:   python wordcount.py
+%
+%  Requirements (from the course instructions):
+%    * Paper: 1400 words +/- 5 %  ->  1330 ... 1470 words
+%    * Appendix - Critical Observations: 300 words +/- 5 %  ->  285 ... 315
+%      (in addition to the 1400 words)
+%    * At least three references from ACM, IEEE, Springer, Elsevier,
+%      Elektrotehniski vestnik or Informatica
+%    * Structure: introduction -> overview of the references -> your
+%      contribution -> conclusions -> Appendix - Critical Observations
+%      -> references
+%
+%  Writing style: no long dashes, colons or semicolons in the running
+%  text. Every number in the text comes from ../experiment/results/.
+% =========================================================================
+\documentclass[conference,a4paper]{IEEEtran}
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{booktabs}
+
+% Figures are taken directly from the experiment, so re-running the
+% Python scripts updates the paper as well.
+\graphicspath{{../experiment/figures/}}
+
+% Placeholder: shown in red in the PDF (none left in the final text).
+\newcommand{\fillin}[1]{\textcolor{red}{[#1]}}
+
+% Notation used in several sections
+\newcommand{\fs}{f_\mathrm{s}}
+\newcommand{\fo}{f_0}
+
+\begin{document}
+
+% ---- Title --------------------------------------------------------------
+% No symbols, special characters, footnotes or math in the title (IEEE).
+\title{An Experimental Comparison of Antialiasing Methods for Digital
+Sawtooth Oscillators}
+
+% ---- Author -------------------------------------------------------------
+\author{\IEEEauthorblockN{Urban Gaj\v{s}ek}
+\IEEEauthorblockA{\textit{Faculty of Computer and Information Science} \\
+\textit{University of Ljubljana}\\
+Ljubljana, Slovenia \\
+ug68213@student.uni-lj.si}
+}
+
+\maketitle
+
+% ---- Abstract and keywords ------------------------------------------------
+\input{sections/00-abstract}
+
+% ---- Body (counts towards the 1400 words) --------------------------------
+\input{sections/01-introduction}
+\input{sections/02-overview}
+\input{sections/03-contribution}
+\input{sections/04-conclusions}
+
+% ---- Appendix (counted separately: 300 words) ----------------------------
+%TC:ignore
+\input{sections/05-appendix-critical-observations}
+%TC:endignore
+
+% ---- References ------------------------------------------------------------
+% Entries are in refs.bib; only the ones you \cite appear in the list.
+%TC:ignore
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+%TC:endignore
+
+\end{document}

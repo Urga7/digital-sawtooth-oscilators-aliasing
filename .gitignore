@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# LaTeX build artifacts (seminar.pdf itself is kept, since it is the deliverable)
+*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.nav
+*.snm
+
+# Experiment run logs
+experiment/*.log
+
+# Editors and IDEs
+.vscode/
+.idea/
+*.swp
+*~
+
+# Operating system files
+Thumbs.db
+desktop.ini
+.DS_Store
